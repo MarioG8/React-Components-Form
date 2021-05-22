@@ -1,25 +1,46 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import classes from "./Form.module.css";
 
 function Form() {
+  const { register, handleSubmit } = useForm();
+  //   const onSubmit = (data) => {
+  //     alert(JSON.stringify(data));
+  //   };
+  const onSubmit = (data) => console.log(data);
+
   return (
-    <div>
-      <form className={classes.form}>
-        <div className={classes.control}>
-          <label htmlFor="name">Name</label>
-          <input type="text" required id="name" />
+    <div className={classes.form}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label htmlFor="firstName">First Name</label>
+          <input placeholder="firstName" {...register("firstName")} />
         </div>
-        <div className={classes.control}>
+
+        <div>
+          <label htmlFor="lastName">Last Name</label>
+          <input placeholder="lastName" {...register("lastName")} />
+        </div>
+
+        <div>
+          <label htmlFor="isDeveloper">Is an developer?</label>
+          <input
+            type="checkbox"
+            placeholder="luo"
+            value="yes"
+            {...register("isDeveloper")}
+          />
+        </div>
+
+        <div>
           <label htmlFor="email">Email</label>
-          <input type="email" required id="email" />
+          <input
+            placeholder="Email address"
+            type="email"
+            {...register("email")}
+          />
         </div>
-        <div className={classes.control}>
-          <label htmlFor="message">Message</label>
-          <textarea id="message" rows="5" required></textarea>
-        </div>
-        <div className={classes.actions}>
-          <button>Add Meetup</button>
-        </div>
+        <input type="submit" />
       </form>
     </div>
   );
