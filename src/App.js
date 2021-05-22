@@ -1,7 +1,10 @@
+import Form from "./components/Form";
+
 function App() {
   return (
-    <div>
-      <h3>Mariusz Golik JavaScript FullStack Developer,Hello World!💻</h3>
+    <div className="container">
+      <h3>💻Mariusz Golik JavaScript FullStack Developer,Hello World!💻</h3>
+      <Form />
     </div>
   );
 }
