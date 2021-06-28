@@ -4,10 +4,11 @@ import classes from "./Form.module.css";
 
 function Form() {
   const { register, handleSubmit } = useForm();
-  //   const onSubmit = (data) => {
-  //     alert(JSON.stringify(data));
-  //   };
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data));
+  };
+
+  // const onSubmit = (data) => console.log(data);
 
   return (
     <div className={classes.form}>
